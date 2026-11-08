@@ -6,35 +6,35 @@ const playUrl = 'https://play.google.com/store/apps/details?id=eu.viglianisi.swi
 const faqs = [
   {
     q: 'How do I play?',
-    a: 'Swipe up in the lower part of the screen to flick the ball. The direction of the swipe sets the angle, the length sets the power. Aim at the ring you can see — it stays still while the ball is in the air.',
+    a: 'Swipe up in the lower part of the screen to shoot. The way you swipe sets the direction. The length of the swipe sets the power.',
   },
   {
-    q: 'Why did my shot miss even though it looked straight?',
-    a: 'The ball is thrown, not steered: the ring is ahead of you and the shot keeps the angle you gave it. A short flick falls short, a wide flick goes wide. The trick is a committed swipe roughly towards the hoop, leaning just enough to line up with the rim.',
+    q: 'Why does my shot miss?',
+    a: 'The ball goes where you throw it. If the shot falls short, swipe a little longer. If it goes wide, swipe a little straighter. Aim at the hoop you see, because it does not move while the ball is in the air.',
   },
   {
     q: 'The timer is not moving. Is the game stuck?',
-    a: 'No: the clock only starts when you release your first shot. Before that you have all the time you want to line up the opener. Pause is the small button in the top-left corner.',
+    a: 'No. The clock starts when you take your first shot. Before that it stays still so you can get ready. To stop the game, tap the pause button in the top-left corner.',
   },
   {
     q: 'How do the multipliers work?',
-    a: 'Consecutive baskets build a combo up to ×5. A clean swish (no rim contact) is worth 3 base points instead of 2. Every bounce off the side wall multiplies that basket again — ×2 for one touch, ×3 for three, and so on — stacking on top of your combo.',
+    a: 'Score again and again to raise your combo, up to ×5. A clean shot (no rim) is worth 3 points instead of 2. If the ball bounces off a side wall and still goes in, that basket is worth ×2 with one bounce, ×3 with three bounces, and so on. All the multipliers add up.',
   },
   {
-    q: 'Can I lose progress?',
-    a: 'Your unlocked level is saved on your phone. Clearing the app data, or uninstalling the game, resets it. There is no cloud save and no account.',
+    q: 'Can I lose my progress?',
+    a: 'The level you unlocked is saved on your phone. If you clear the app data or uninstall the game, it starts again from level 1. There is no cloud save.',
   },
   {
     q: 'Does it work offline?',
-    a: 'Yes, completely. SWISH has no internet permission, no ads, no analytics and no in-app purchases.',
+    a: 'Yes. The game has no internet permission, no ads and no in-app purchases.',
   },
   {
-    q: 'Which devices are supported?',
-    a: 'Android 7.0 and newer on a 64-bit (arm64) device. The game runs full screen in portrait.',
+    q: 'Which phones does it work on?',
+    a: 'Android 7 or newer, on a 64-bit phone. The game is portrait only.',
   },
   {
     q: 'How do I turn off vibration?',
-    a: 'SWISH vibrates only on a basket, a rim hit and the final buzzer. You can turn game vibration off in Android Settings → Sounds and vibration → System vibration (the exact path depends on your phone).',
+    a: 'The game vibrates a little when you score, when the ball hits the rim and when time runs out. You can turn off vibration in Android Settings → Sound and vibration.',
   },
 ];
 ---
@@ -43,7 +43,7 @@ const faqs = [
     <div class="container">
       <p class="eyebrow">Support</p>
       <h1>How can we help?</h1>
-      <p class="lede">Answers to the usual questions, and a way to reach a human.</p>
+      <p class="lede">Answers to the usual questions, and an email address if you need help.</p>
     </div>
   </section>
 
@@ -60,11 +60,11 @@ const faqs = [
       </div>
 
       <h2>Report a bug or ask for a feature</h2>
-      <p>Email is the fastest way. Please include your phone model, Android version and what happened just before the problem. Screenshots are welcome.</p>
+      <p>Write an email. Tell us your phone model, your Android version, and what happened. Screenshots help.</p>
       <div class="contact-card">
         <div>
           <h2>Write to us</h2>
-          <p>Usually answered within a couple of days.</p>
+          <p>We usually answer in a couple of days.</p>
         </div>
         <a class="button button-primary" href="mailto:emavgl.app@gmail.com?subject=SWISH%20support">emavgl.app@gmail.com</a>
       </div>
@@ -72,10 +72,10 @@ const faqs = [
       <h2>Useful links</h2>
       <ul>
         <li><a href={playUrl} target="_blank" rel="noopener">SWISH on Google Play</a></li>
-        <li><a href={`${base}privacy-policy/`}>Privacy policy</a> — everything stays on your phone</li>
-        <li><a href={`${base}data-safety/`}>Data safety</a> — the Play summary in plain words</li>
+        <li><a href={`${base}privacy-policy/`}>Privacy policy</a> — nothing leaves your phone</li>
+        <li><a href={`${base}data-safety/`}>Data safety</a> — the Play summary in simple words</li>
         <li><a href={`${base}content-rating/`}>Content rating</a> — what the game contains</li>
-        <li><a href={`${base}impressum/`}>Impressum</a> — who publishes the game</li>
+        <li><a href={`${base}impressum/`}>Impressum</a> — who makes the game</li>
       </ul>
 
       <p class="small-note">SWISH is developed by Emanuele Viglianisi, Leonding, Austria.</p>

@@ -6,27 +6,27 @@ const playUrl = 'https://play.google.com/store/apps/details?id=eu.viglianisi.swi
 const features = [
   {
     title: 'One thumb, one minute',
-    body: 'Swipe up to flick the ball. The angle of your swipe is the angle of the shot, its length is the power. No buttons, no menus mid-run.',
+    body: 'Swipe up to shoot. The way you swipe sets the direction. The length of the swipe sets the power. No buttons.',
   },
   {
-    title: 'A still ring, then a jump',
-    body: 'The hoop holds still while the ball is in the air, then moves to a new spot — sometimes wider, sometimes higher — for the next shot.',
+    title: 'The hoop waits for you',
+    body: 'The hoop stays still while the ball is in the air. Then it jumps to a new place for the next shot.',
   },
   {
-    title: 'Combos and swishes',
-    body: 'Every basket in a row raises the multiplier up to ×5. A clean swish is worth more than a shot that rattles in off the rim.',
+    title: 'Combos and clean shots',
+    body: 'Score again and again to raise your multiplier up to ×5. A clean shot is worth more than one that hits the rim.',
   },
   {
-    title: 'Trick shots pay',
-    body: 'Bank it off the side wall and the basket is multiplied again — ×2, ×3, ×4 — stacking on top of your combo.',
+    title: 'Trick shots pay more',
+    body: 'If the ball bounces off a side wall and still goes in, that basket is worth more: ×2, ×3 or ×4. It adds up with your combo.',
   },
   {
     title: 'Endless levels',
-    body: 'Reach the target before the minute runs out and the next level starts immediately, with a bigger target and a busier hoop.',
+    body: 'Each level asks for more points in 60 seconds. Reach the target and the next level starts right away. There is no last level.',
   },
   {
-    title: 'Tiny and offline',
-    body: 'No ads, no in-app purchases, no account, no internet permission. A small download that runs entirely on your phone.',
+    title: 'Small and offline',
+    body: 'No ads, no purchases, no account, no internet. The game runs on your phone.',
   },
 ];
 ---
@@ -38,12 +38,12 @@ const features = [
     <div class="container">
       <p class="eyebrow">A 60-second basketball game</p>
       <h1>SW<span class="accent">I</span>SH</h1>
-      <p class="lede">Sixty seconds, one hoop. Flick the ball in, chain your baskets, and bank trick shots off the walls for a bigger multiplier.</p>
+      <p class="lede">Sixty seconds, one hoop. Flick the ball into the basket, keep scoring to build a combo, and bounce the ball off the walls for extra points.</p>
       <div class="actions">
         <a class="button button-primary" href={playUrl} target="_blank" rel="noopener">Get it on Google Play</a>
         <a class="button button-secondary" href={`${base}#how-to-play`}>How to play</a>
       </div>
-      <p class="hero-note">Free · no ads · no in-app purchases · works offline</p>
+      <p class="hero-note">Free · no ads · works offline</p>
     </div>
   </section>
 
@@ -56,8 +56,8 @@ const features = [
   <section class="section" id="how-to-play">
     <div class="container">
       <div class="section-heading">
-        <h2>Learn it in one shot.</h2>
-        <p>The whole game is a swipe. The depth comes from where the hoop is and how hard you flick.</p>
+        <h2>Easy to learn.</h2>
+        <p>One swipe to shoot. The rest is about where the hoop is and how hard you swipe.</p>
       </div>
       <div class="feature-grid">
         {features.map((f) => (
@@ -74,18 +74,19 @@ const features = [
     <div class="container narrow">
       <div class="section-heading">
         <h2>How a shot works</h2>
-        <p>Aim, flick, and let the timer do the rest.</p>
+        <p>Aim, swipe, score.</p>
       </div>
       <div class="prose" style="margin: 0 auto;">
         <ol>
-          <li>Swipe up from anywhere in the lower part of the screen to flick the ball.</li>
-          <li>The direction of your swipe becomes the angle of the shot, and the length becomes the power.</li>
-          <li>The ring is still while the ball is in the air — aim at the rim you can see.</li>
-          <li>A basket scores 2 points, a clean swish 3, and consecutive baskets multiply everything up to ×5.</li>
-          <li>Every bounce off the side wall multiplies that basket again (×2, ×3, ×4) on top of the combo.</li>
-          <li>Reach the level target before the buzzer and the next level begins straight away. There is no last level.</li>
+          <li>Swipe up in the lower half of the screen to shoot.</li>
+          <li>Swipe straight to shoot straight. Tilt the swipe to aim left or right.</li>
+          <li>Swipe longer for more power. A short swipe falls short.</li>
+          <li>The hoop does not move while the ball is in the air. Aim at the hoop you see.</li>
+          <li>A basket is 2 points. A clean shot is 3. Score again and again to raise the multiplier, up to ×5.</li>
+          <li>Every bounce on a side wall makes the basket worth more: ×2, ×3, ×4. It adds up with your combo.</li>
+          <li>Reach the level target before time runs out and the next level starts. There is no last level.</li>
         </ol>
-        <p>The timer only starts on your first shot, so you can line up the opener as long as you like.</p>
+        <p>The clock starts when you take your first shot, so you can get ready without hurry.</p>
       </div>
     </div>
   </section>
@@ -93,21 +94,21 @@ const features = [
   <section class="section">
     <div class="container">
       <div class="section-heading">
-        <h2>Small game, clear rules.</h2>
+        <h2>Simple rules.</h2>
         <p>No ads, no purchases, no accounts. Just the hoop.</p>
       </div>
       <div class="feature-grid">
         <article class="feature-card">
           <h3>The timer</h3>
-          <p>Sixty seconds per level, starting on your first shot. Pause any time from the button in the top-left corner.</p>
+          <p>You get 60 seconds per level. The clock starts on your first shot. Tap the pause button in the top-left corner to stop.</p>
         </article>
         <article class="feature-card">
-          <h3>Sensitivity</h3>
-          <p>The swipe is tuned for phones: a short flick is a soft shot, a long one clears the backboard.</p>
+          <h3>How to swipe</h3>
+          <p>A short swipe is a soft shot. A long swipe is a strong, high shot. If the ball falls short, swipe a little longer.</p>
         </article>
         <article class="feature-card">
-          <h3>Progress</h3>
-          <p>Your unlocked level is stored on your phone. Clearing the app data or reinstalling resets it.</p>
+          <h3>Your progress</h3>
+          <p>The level you unlocked is saved on your phone. If you clear the app data or reinstall, it starts again from level 1.</p>
         </article>
       </div>
     </div>
@@ -116,7 +117,7 @@ const features = [
   <section class="cta">
     <div class="container cta-inner">
       <div>
-        <h2>How many can you sink in a minute?</h2>
+        <h2>How many baskets can you score in a minute?</h2>
         <p>Download SWISH and find out.</p>
       </div>
       <a class="button button-primary" href={playUrl} target="_blank" rel="noopener">Google Play</a>
