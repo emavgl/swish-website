@@ -24,8 +24,8 @@ npm run check    # astro check
 
 ## Custom domain
 
-The site is configured as a project page:
-`https://emavgl.github.io/swish-website/`.
+Live at **https://viglianisi.eu/swish-website/** (GitHub Pages project site on
+the account domain `viglianisi.eu`).
 
 To serve it from `swish.viglianisi.eu` instead: set `site` and `base: '/'` in
 `astro.config.mjs`, update `public/robots.txt`, add a `public/CNAME` containing
