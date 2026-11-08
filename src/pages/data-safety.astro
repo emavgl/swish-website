@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Data Safety – SWISH" description="SWISH data safety summary: no data collected, no data shared, no internet permission.">
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Data safety</p>
+      <h1>Data safety.</h1>
+      <p class="lede">The same answers the Data safety section of the Play listing uses, in plain words.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <article class="container prose">
+      <p><strong>Last updated: November 2026.</strong></p>
+
+      <h2>Summary</h2>
+      <p>SWISH collects no data and shares no data. It has no ads, no analytics, no accounts and no server. The game has no internet permission, so nothing can leave your device.</p>
+
+      <h2>Data collected</h2>
+      <table>
+        <thead>
+          <tr><th>Data type</th><th>Collected</th><th>Shared</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Personal info (name, email, user IDs, address, phone)</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Location</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Financial info</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Health and fitness</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Messages, photos, files, contacts, calendar</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>App activity (in-app search, other actions)</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Web browsing history</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>App info and performance (crash logs, diagnostics)</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th>Device or other IDs (advertising ID, device ID)</th>
+            <td><span class="pill pill-no">No</span></td>
+            <td><span class="pill pill-no">No</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Data we do not collect</h2>
+      <ul>
+        <li>No name, email address, phone number, contacts or account.</li>
+        <li>No precise or approximate location.</li>
+        <li>No photos, videos, audio, files or messages.</li>
+        <li>No payment or financial information.</li>
+        <li>No usage analytics, adverts, advertising ID or cross-app tracking.</li>
+        <li>No motion or sensor data: SWISH does not read any sensor, not even the accelerometer.</li>
+      </ul>
+
+      <h2>Security practices</h2>
+      <ul>
+        <li><strong>No data in transit:</strong> the game has no internet permission.</li>
+        <li><strong>Local-only storage:</strong> the unlocked level is written to the app's private storage, protected by Android's app sandbox.</li>
+        <li><strong>Deletion:</strong> uninstalling the game or clearing its app data removes everything.</li>
+      </ul>
+
+      <h2>Ads, analytics and third parties</h2>
+      <p>SWISH has no advertising, no analytics and no third-party SDKs. The only third-party component is the Godot game engine, which is compiled into the app and makes no network requests.</p>
+
+      <h2>Children</h2>
+      <p>The game is suitable for all ages and collects nothing, including from children.</p>
+
+      <p class="small-note">See the full <a href={`${base}privacy-policy/`}>Privacy Policy</a> and the <a href={`${base}terms-of-service/`}>Terms of Service</a> for details and your rights.</p>
+    </article>
+  </section>
+</Layout>

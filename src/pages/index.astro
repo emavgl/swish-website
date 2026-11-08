@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+const playUrl = 'https://play.google.com/store/apps/details?id=eu.viglianisi.swish';
+
+const features = [
+  {
+    title: 'One thumb, one minute',
+    body: 'Swipe up to flick the ball. The angle of your swipe is the angle of the shot, its length is the power. No buttons, no menus mid-run.',
+  },
+  {
+    title: 'A still ring, then a jump',
+    body: 'The hoop holds still while the ball is in the air, then moves to a new spot — sometimes wider, sometimes higher — for the next shot.',
+  },
+  {
+    title: 'Combos and swishes',
+    body: 'Every basket in a row raises the multiplier up to ×5. A clean swish is worth more than a shot that rattles in off the rim.',
+  },
+  {
+    title: 'Trick shots pay',
+    body: 'Bank it off the side wall and the basket is multiplied again — ×2, ×3, ×4 — stacking on top of your combo.',
+  },
+  {
+    title: 'Endless levels',
+    body: 'Reach the target before the minute runs out and the next level starts immediately, with a bigger target and a busier hoop.',
+  },
+  {
+    title: 'Tiny and offline',
+    body: 'No ads, no in-app purchases, no account, no internet permission. A small download that runs entirely on your phone.',
+  },
+];
+---
+
+<Layout title="SWISH – Sixty seconds, one hoop">
+  <canvas class="dot-field" aria-hidden="true"></canvas>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">A 60-second basketball game</p>
+      <h1>SW<span class="accent">I</span>SH</h1>
+      <p class="lede">Sixty seconds, one hoop. Flick the ball in, chain your baskets, and bank trick shots off the walls for a bigger multiplier.</p>
+      <div class="actions">
+        <a class="button button-primary" href={playUrl} target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="button button-secondary" href={`${base}#how-to-play`}>How to play</a>
+      </div>
+      <p class="hero-note">Free · no ads · no in-app purchases · works offline</p>
+    </div>
+  </section>
+
+  <div class="shots">
+    <img src={`${base}screenshots/aim.jpg`} alt="SWISH gameplay: aiming at a still hoop" width="1080" height="1920" loading="lazy" />
+    <img src={`${base}screenshots/trick-shots.jpg`} alt="SWISH trick shots: wall bounces multiply the basket" width="1080" height="1920" loading="lazy" />
+    <img src={`${base}screenshots/endless.jpg`} alt="SWISH endless levels: score, level and timer" width="1080" height="1920" loading="lazy" />
+  </div>
+
+  <section class="section" id="how-to-play">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Learn it in one shot.</h2>
+        <p>The whole game is a swipe. The depth comes from where the hoop is and how hard you flick.</p>
+      </div>
+      <div class="feature-grid">
+        {features.map((f) => (
+          <article class="feature-card">
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container narrow">
+      <div class="section-heading">
+        <h2>How a shot works</h2>
+        <p>Aim, flick, and let the timer do the rest.</p>
+      </div>
+      <div class="prose" style="margin: 0 auto;">
+        <ol>
+          <li>Swipe up from anywhere in the lower part of the screen to flick the ball.</li>
+          <li>The direction of your swipe becomes the angle of the shot, and the length becomes the power.</li>
+          <li>The ring is still while the ball is in the air — aim at the rim you can see.</li>
+          <li>A basket scores 2 points, a clean swish 3, and consecutive baskets multiply everything up to ×5.</li>
+          <li>Every bounce off the side wall multiplies that basket again (×2, ×3, ×4) on top of the combo.</li>
+          <li>Reach the level target before the buzzer and the next level begins straight away. There is no last level.</li>
+        </ol>
+        <p>The timer only starts on your first shot, so you can line up the opener as long as you like.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Small game, clear rules.</h2>
+        <p>No ads, no purchases, no accounts. Just the hoop.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>The timer</h3>
+          <p>Sixty seconds per level, starting on your first shot. Pause any time from the button in the top-left corner.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Sensitivity</h3>
+          <p>The swipe is tuned for phones: a short flick is a soft shot, a long one clears the backboard.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Progress</h3>
+          <p>Your unlocked level is stored on your phone. Clearing the app data or reinstalling resets it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>How many can you sink in a minute?</h2>
+        <p>Download SWISH and find out.</p>
+      </div>
+      <a class="button button-primary" href={playUrl} target="_blank" rel="noopener">Google Play</a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Slow drifting dots, the same ambient language the game uses on its court.
+  const canvas = document.querySelector<HTMLCanvasElement>('.dot-field');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    type Dot = { x: number; y: number; r: number; phase: number; speed: number; sway: number; alpha: number };
+    let width = 0;
+    let height = 0;
+    let dots: Dot[] = [];
+
+    const seed = () => {
+      const count = Math.max(10, Math.min(34, Math.round((width * height) / 55000)));
+      dots = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: 1.6 + Math.random() * 3.4,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.08 + Math.random() * 0.22,
+        sway: 8 + Math.random() * 22,
+        alpha: 0.05 + Math.random() * 0.08,
+      }));
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const nextWidth = window.innerWidth;
+      const nextHeight = window.innerHeight;
+      if (nextWidth === width && nextHeight === height) return;
+      width = nextWidth;
+      height = nextHeight;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx?.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    };
+
+    const draw = (t: number) => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      for (const dot of dots) {
+        const x = dot.x + Math.sin(t * dot.speed + dot.phase) * dot.sway;
+        const y = dot.y + Math.cos(t * dot.speed * 0.7 + dot.phase) * dot.sway * 0.6;
+        ctx.fillStyle = `rgba(242, 106, 43, ${dot.alpha})`;
+        ctx.beginPath();
+        ctx.arc(x, y, dot.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    if (reduceMotion) {
+      draw(0);
+    } else {
+      let last = performance.now();
+      let elapsed = 0;
+      const tick = (now: number) => {
+        elapsed += Math.min((now - last) / 1000, 0.05);
+        last = now;
+        draw(elapsed);
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+</script>

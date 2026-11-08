@@ -1,0 +1,17 @@
+---
+interface Props { base: string }
+const { base } = Astro.props;
+---
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a href={base} class="brand" aria-label="SWISH home">
+      <img src={`${base}swish-logo.svg`} alt="" class="brand-logo" width="36" height="36" />
+      <span>SWISH</span>
+    </a>
+    <div class="nav-links">
+      <a href={`${base}#how-to-play`} class="hide-sm">How to play</a>
+      <a href={`${base}support/`}>Support</a>
+      <a href={`${base}privacy-policy/`}>Privacy</a>
+    </div>
+  </div>
+</nav>

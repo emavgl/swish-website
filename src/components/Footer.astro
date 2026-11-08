@@ -1,0 +1,35 @@
+---
+interface Props { base: string }
+const { base } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src={`${base}swish-logo.svg`} alt="" class="brand-logo" width="32" height="32" />
+        <span>SWISH</span>
+      </div>
+      <p class="footer-copy">Sixty seconds, one hoop. A one-thumb arcade basketball game for Android.</p>
+    </div>
+    <div>
+      <h2>Game</h2>
+      <ul>
+        <li><a href={base}>Overview</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=eu.viglianisi.swish" target="_blank" rel="noopener">Google Play</a></li>
+        <li><a href={`${base}support/`}>Support</a></li>
+        <li><a href={`${base}content-rating/`}>Content rating</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul>
+        <li><a href={`${base}privacy-policy/`}>Privacy policy</a></li>
+        <li><a href={`${base}terms-of-service/`}>Terms of service</a></li>
+        <li><a href={`${base}data-safety/`}>Data safety</a></li>
+        <li><a href={`${base}impressum/`}>Impressum</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">© {year} · SWISH · Emanuele Viglianisi</div>
+</footer>

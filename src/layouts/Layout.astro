@@ -1,0 +1,58 @@
+---
+import Footer from '../components/Footer.astro';
+import NavBar from '../components/NavBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'SWISH is a one-minute arcade basketball game for Android. Flick the ball into a moving hoop, chain combos, bank shots off the walls and chase the endless levels.',
+  noindex = false,
+} = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Canonical URL for this page. GitHub Pages serves pages from <folder>/index.html
+// and redirects the slash-less form to the slashed one, so always emit the
+// slashed variant to avoid reporting a redirect as the canonical URL.
+const pathname = Astro.url.pathname;
+const canonicalPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Emanuele Viglianisi" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content="#fbfcfd" />
+    <link rel="icon" type="image/svg+xml" href={`${base}swish-logo.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href={`${base}styles.css?v=1`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SWISH" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(`${base}screenshots/aim.jpg`, Astro.site ?? Astro.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <NavBar base={base} />
+    <main><slot /></main>
+    <Footer base={base} />
+  </body>
+</html>

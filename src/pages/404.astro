@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Page not found – SWISH" noindex={true}>
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">404</p>
+      <h1>Air ball.</h1>
+      <p class="lede">That page does not exist. Back to the court.</p>
+      <div class="actions" style="justify-content: flex-start;">
+        <a class="button button-primary" href={base}>Back to SWISH</a>
+      </div>
+    </div>
+  </section>
+</Layout>

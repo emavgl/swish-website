@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Content Rating – SWISH" description="SWISH content rating summary: a basketball game with no violence, no language and no online interaction.">
+  <section class="page-header">
+    <div class="container">
+      <p class="eyebrow">Content rating</p>
+      <h1>Content rating.</h1>
+      <p class="lede">What SWISH contains, and the answers used for the Google Play / IARC questionnaire.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <article class="container prose">
+      <p><strong>Last updated: November 2026.</strong></p>
+
+      <h2>About the game</h2>
+      <p>SWISH is a casual sports game. You flick a basketball into a hoop, level after level, against a sixty-second clock. There are no characters, no story, no opponents and no online features.</p>
+
+      <h2>Questionnaire summary</h2>
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Answer</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Violence</th><td><span class="pill pill-no">None</span></td><td>Players throw a basketball into a hoop. No fighting, injuries, blood or gore.</td></tr>
+          <tr><th>Fear / horror</th><td><span class="pill pill-no">None</span></td><td>No horror themes, jump scares or disturbing imagery.</td></tr>
+          <tr><th>Sexuality</th><td><span class="pill pill-no">None</span></td><td>No sexual content, nudity or suggestive material.</td></tr>
+          <tr><th>Language</th><td><span class="pill pill-no">None</span></td><td>No profanity or offensive language.</td></tr>
+          <tr><th>Controlled substances</th><td><span class="pill pill-no">None</span></td><td>No alcohol, tobacco or drug references.</td></tr>
+          <tr><th>Gambling</th><td><span class="pill pill-no">None</span></td><td>No real-money or simulated gambling, loot boxes or wagering.</td></tr>
+          <tr><th>User interaction</th><td><span class="pill pill-no">None</span></td><td>No chat, messaging, leaderboards or user-generated content. The game is single-player and offline.</td></tr>
+          <tr><th>Shares location</th><td><span class="pill pill-no">No</span></td><td>No location access or sharing.</td></tr>
+          <tr><th>Digital purchases</th><td><span class="pill pill-no">No</span></td><td>No in-app purchases or subscriptions.</td></tr>
+          <tr><th>Advertising</th><td><span class="pill pill-no">No</span></td><td>No ads of any kind.</td></tr>
+          <tr><th>Miscellaneous</th><td><span class="pill pill-no">None</span></td><td>No political, religious or otherwise sensitive content.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Expected rating</h2>
+      <p>Based on the answers above, SWISH is expected to receive the lowest age rating available, such as <strong>Everyone</strong> (ESRB), <strong>PEGI 3</strong>, or the regional equivalent. The binding rating is the one issued by IARC after the questionnaire is completed in Play Console and can vary by country.</p>
+
+      <h2>Online features and safety</h2>
+      <ul>
+        <li>Fully offline: the app has no internet permission.</li>
+        <li>No accounts, no chat, no user-generated content, no social features.</li>
+        <li>No ads and no links to external stores or gambling services.</li>
+        <li>Haptic feedback only (vibration), which can be disabled in Android settings.</li>
+      </ul>
+
+      <p class="small-note">See also the <a href={`${base}privacy-policy/`}>Privacy Policy</a>, <a href={`${base}terms-of-service/`}>Terms of Service</a> and <a href={`${base}data-safety/`}>Data safety</a> page.</p>
+    </article>
+  </section>
+</Layout>
