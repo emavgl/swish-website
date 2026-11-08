@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://viglianisi.eu/swish-website/sitemap-index.xml
+Sitemap: https://swish.viglianisi.eu/sitemap-index.xml

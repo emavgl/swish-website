@@ -22,11 +22,8 @@ npm run check    # astro check
 - `/data-safety/` — the Data safety answers in plain words
 - `/terms-of-service/`, `/content-rating/`, `/impressum/`
 
-## Custom domain
+## Domain
 
-Live at **https://viglianisi.eu/swish-website/** (GitHub Pages project site on
-the account domain `viglianisi.eu`).
-
-To serve it from `swish.viglianisi.eu` instead: set `site` and `base: '/'` in
-`astro.config.mjs`, update `public/robots.txt`, add a `public/CNAME` containing
-the domain, and point a CNAME DNS record at `emavgl.github.io`.
+The site is served from `swish.viglianisi.eu`: `public/CNAME` holds the domain and
+`astro.config.mjs` uses `site: 'https://swish.viglianisi.eu'` with `base: '/'`.
+The DNS record is a CNAME from `swish` to `emavgl.github.io`.
